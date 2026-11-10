@@ -1,0 +1,58 @@
+---
+import Default from '@astrojs/starlight/components/Head.astro';
+---
+
+<!-- 検索エンジンのクローラーから除外する。要約が元記事の再生産のように見えてしまうため、検索結果には出さない。 -->
+<meta name="robots" content="noindex, nofollow" />
+<Default><slot /></Default>
+
+<script>
+	import mermaid from 'mermaid';
+
+	mermaid.initialize({ startOnLoad: false, theme: 'default' });
+
+	// Starlight はコードブロックを expressive-code で描画するため、
+	// Mermaid のブロックは <pre data-language="mermaid"> になる。
+	// その中身を Mermaid の図に置き換える。
+	// expressive-code は1行ごとに <div class="ec-line"> で描画するため、
+	// textContent をそのまま使うと行がつながって1行になってしまい、
+	// Mermaid のパースに失敗する。行ごとに取り出して改行でつなぐ。
+	function codeText(code) {
+		const lines = code.querySelectorAll('.ec-line');
+		if (lines.length > 0) {
+			return [...lines].map((line) => line.textContent ?? '').join('\n');
+		}
+		return code.textContent ?? '';
+	}
+
+	async function renderMermaid() {
+		const blocks = document.querySelectorAll(
+			'pre[data-language="mermaid"], pre > code.language-mermaid',
+		);
+		const nodes = [];
+		for (const block of blocks) {
+			const pre = block.tagName === 'PRE' ? block : block.parentElement;
+			if (!pre || pre.dataset.mermaidDone) continue;
+			const code = pre.querySelector('code');
+			const text = (code ? codeText(code) : pre.textContent) ?? '';
+			if (!text.trim()) continue;
+			const div = document.createElement('div');
+			div.className = 'mermaid';
+			div.textContent = text;
+			pre.replaceWith(div);
+			pre.dataset.mermaidDone = 'true';
+			nodes.push(div);
+		}
+		if (nodes.length > 0) {
+			try {
+				await mermaid.run({ nodes });
+			} catch (error) {
+				console.error('Mermaid の描画に失敗しました', error);
+			}
+		}
+	}
+
+	// Starlight の画面遷移（astro:page-load）でも描画し直す。
+	document.addEventListener('astro:page-load', renderMermaid);
+	renderMermaid();
+</script>
