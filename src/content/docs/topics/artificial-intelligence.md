@@ -4,8 +4,8 @@ categories: ["AI"]
 tags: ["artificial-intelligence"]
 created_at: "2026-11-09"
 updated_at: "2026-11-11"
-sources: ["../sources/social/x/2026-11-03-critical-thinking-when-agents-do-the-work.md", "../sources/articles/2025-08-05-chatgpt-pixel-art-guide.md"]
-related: ["../knowledge/ai/cognitive-surrender-and-cognitive-debt.md", "../knowledge/ai/verification-for-agent-work.md", "../knowledge/ai/ai-pixel-art-generation-methods.md", "../knowledge/ai/pixel-art-prompt-design.md"]
+sources: ["../sources/social/x/2026-11-03-critical-thinking-when-agents-do-the-work.md", "../sources/articles/2025-08-05-chatgpt-pixel-art-guide.md", "../sources/social/x/2026-11-11-llm-agent-hft-self-improvement.md"]
+related: ["../knowledge/ai/cognitive-surrender-and-cognitive-debt.md", "../knowledge/ai/verification-for-agent-work.md", "../knowledge/ai/ai-pixel-art-generation-methods.md", "../knowledge/ai/pixel-art-prompt-design.md", "../knowledge/ai/agent-self-improvement-loop-design.md", "../knowledge/ai/backtest-latency-correction.md"]
 ---
 
 # 人工知能
@@ -18,7 +18,9 @@ related: ["../knowledge/ai/cognitive-surrender-and-cognitive-debt.md", "../knowl
 
 2026-11-11 に、2件目の情報源として、キレカクの記事「ChatGPT×ドット絵ピクセルアートの作成手順やプロンプト完全ガイド」（2025-08-05）を追加した。こちらは、生成AIへの指示の出し方（プロンプト設計）を扱うもので、エージェントへの委譲とは別の側面である。以下の §2〜§5 の体系は初版の情報源にもとづくものであり、新しい情報源については §6 と §9 に記録する。情報源が増えたら、体系への統合も検討する。
 
-更新履歴：2026-11-10 に、例題Sourceと Knowledge 2件をもとに初版を作成した。2026-11-11 に、ドット絵生成の情報源1件と Knowledge 2件を追加した。
+同日、3件目の情報源として、おもしろフラッシュトレード倉庫の記事「LLM エージェントを活用した高頻度売買システムの自己改善ワークフロー構築」（2026-11-11）を追加した。こちらは、エージェントに自己改善ループを回させ、ほぼ人間の介入なしに運用する実践であり、委譲の度合いが最も深い事例である。このテーマの観点では、自己改善ループの信頼性が検証（バックテスト）の質で決まる点が、初版の「検証の層」と直接つながる。新しい情報源については §6 と §9 に記録する。
+
+更新履歴：2026-11-10 に、例題Sourceと Knowledge 2件をもとに初版を作成した。2026-11-11 に、ドット絵生成の情報源1件と Knowledge 2件を追加した。同日、3件目の情報源として、HFT bot の自己改善ループの情報源1件と Knowledge 2件を追加した。
 
 ## 2. 基本概念
 
@@ -62,6 +64,8 @@ AIエージェントと批判的思考の関係は、次の三つの層で整理
 - [エージェント作業における検証の習慣](../knowledge/ai/verification-for-agent-work.md) — 検証を習慣にし、「検証済み」の定義を事前に決め、証拠を確認するための知識。
 - [AIでドット絵を作る3つの方法](../knowledge/ai/ai-pixel-art-generation-methods.md) — テキストアート、ASCII + 色指定、プログラムコード生成という、生成AIでドット絵を作る方法を整理した知識。
 - [ドット絵生成のプロンプト設計](../knowledge/ai/pixel-art-prompt-design.md) — 5W1H + 技術仕様、段階的詳細化、制約の優先順位という指示の原則と、ぼやけ・色数・比率の問題への対処を整理した知識。
+- [エージェント自己改善ループの設計](../knowledge/ai/agent-self-improvement-loop-design.md) — 定期実行・データ蓄積・知見集約の3要素と、experiments と findings の二層構造で、エージェントが改善を回し続ける仕組みを整理した知識。
+- [バックテストにおけるレイテンシ補正](../knowledge/ai/backtest-latency-correction.md) — ヒストリカルデータに実稼働の遅延を反映させ、バックテストの検証精度を上げる方法を整理した知識。
 
 ## 7. 最新の動向
 
@@ -82,4 +86,5 @@ AIエージェントと批判的思考の関係は、次の三つの層で整理
 
 - [Critical thinking when agents do the work](../sources/social/x/2026-11-03-critical-thinking-when-agents-do-the-work.md) — Addy Osmani による X の長文記事（2026-11-03）。このテーマの初版の情報源である。
 - [ChatGPT×ドット絵ピクセルアートの作成手順やプロンプト完全ガイド](../sources/articles/2025-08-05-chatgpt-pixel-art-guide.md) — キレカクの記事（2025-08-05）。生成AIでドット絵を作る方法とプロンプト設計の情報源である。
-- 更新履歴：2026-11-10 に、例題Sourceと Knowledge 2件をもとに初版を作成した。以前の内容は「まだ登録された情報源がありません」というプレースホルダであり、初版の作成にあたって置き換えた。2026-11-11 に、ドット絵生成の情報源1件と Knowledge 2件を追加した。
+- [LLM エージェントを活用した高頻度売買システムの自己改善ワークフロー構築](../sources/social/x/2026-11-11-llm-agent-hft-self-improvement.md) — おもしろフラッシュトレード倉庫による X の長文記事（2026-11-11）。エージェントの自己改善ループと、検証としてのバックテストの実践の情報源である。
+- 更新履歴：2026-11-10 に、例題Sourceと Knowledge 2件をもとに初版を作成した。以前の内容は「まだ登録された情報源がありません」というプレースホルダであり、初版の作成にあたって置き換えた。2026-11-11 に、ドット絵生成の情報源1件と Knowledge 2件を追加した。同日、HFT bot の自己改善ループの情報源1件と Knowledge 2件を追加した。
