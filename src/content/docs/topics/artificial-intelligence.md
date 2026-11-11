@@ -3,9 +3,9 @@ title: "人工知能"
 categories: ["AI"]
 tags: ["artificial-intelligence"]
 created_at: "2026-11-09"
-updated_at: "2026-11-10"
-sources: ["../sources/social/x/2026-11-03-critical-thinking-when-agents-do-the-work.md"]
-related: ["../knowledge/ai/cognitive-surrender-and-cognitive-debt.md", "../knowledge/ai/verification-for-agent-work.md"]
+updated_at: "2026-11-11"
+sources: ["../sources/social/x/2026-11-03-critical-thinking-when-agents-do-the-work.md", "../sources/articles/2025-08-05-chatgpt-pixel-art-guide.md"]
+related: ["../knowledge/ai/cognitive-surrender-and-cognitive-debt.md", "../knowledge/ai/verification-for-agent-work.md", "../knowledge/ai/ai-pixel-art-generation-methods.md", "../knowledge/ai/pixel-art-prompt-design.md"]
 ---
 
 # 人工知能
@@ -16,7 +16,9 @@ related: ["../knowledge/ai/cognitive-surrender-and-cognitive-debt.md", "../knowl
 
 現時点では、情報源は1件のみである。Addy Osmani による X の長文記事「Critical thinking when agents do the work」（2026-11-03）と、そこから抽出した Knowledge 2件をもとにまとめたものである。情報源が1件のみであるため、複数の情報源の比較はまだできない。情報が追加されたら、このテーマも更新する。
 
-更新履歴：2026-11-10 に、例題Sourceと Knowledge 2件をもとに初版を作成した。
+2026-11-11 に、2件目の情報源として、キレカクの記事「ChatGPT×ドット絵ピクセルアートの作成手順やプロンプト完全ガイド」（2025-08-05）を追加した。こちらは、生成AIへの指示の出し方（プロンプト設計）を扱うもので、エージェントへの委譲とは別の側面である。以下の §2〜§5 の体系は初版の情報源にもとづくものであり、新しい情報源については §6 と §9 に記録する。情報源が増えたら、体系への統合も検討する。
+
+更新履歴：2026-11-10 に、例題Sourceと Knowledge 2件をもとに初版を作成した。2026-11-11 に、ドット絵生成の情報源1件と Knowledge 2件を追加した。
 
 ## 2. 基本概念
 
@@ -58,6 +60,8 @@ AIエージェントと批判的思考の関係は、次の三つの層で整理
 
 - [認知的降伏と認知的負債](../knowledge/ai/cognitive-surrender-and-cognitive-debt.md) — 委譲のスペクトルと、理解の損失が借金のように積み重なる仕組みを整理した知識。
 - [エージェント作業における検証の習慣](../knowledge/ai/verification-for-agent-work.md) — 検証を習慣にし、「検証済み」の定義を事前に決め、証拠を確認するための知識。
+- [AIでドット絵を作る3つの方法](../knowledge/ai/ai-pixel-art-generation-methods.md) — テキストアート、ASCII + 色指定、プログラムコード生成という、生成AIでドット絵を作る方法を整理した知識。
+- [ドット絵生成のプロンプト設計](../knowledge/ai/pixel-art-prompt-design.md) — 5W1H + 技術仕様、段階的詳細化、制約の優先順位という指示の原則と、ぼやけ・色数・比率の問題への対処を整理した知識。
 
 ## 7. 最新の動向
 
@@ -77,4 +81,5 @@ AIエージェントと批判的思考の関係は、次の三つの層で整理
 ## 9. 参考情報
 
 - [Critical thinking when agents do the work](../sources/social/x/2026-11-03-critical-thinking-when-agents-do-the-work.md) — Addy Osmani による X の長文記事（2026-11-03）。このテーマの初版の情報源である。
-- 更新履歴：2026-11-10 に、例題Sourceと Knowledge 2件をもとに初版を作成した。以前の内容は「まだ登録された情報源がありません」というプレースホルダであり、初版の作成にあたって置き換えた。
+- [ChatGPT×ドット絵ピクセルアートの作成手順やプロンプト完全ガイド](../sources/articles/2025-08-05-chatgpt-pixel-art-guide.md) — キレカクの記事（2025-08-05）。生成AIでドット絵を作る方法とプロンプト設計の情報源である。
+- 更新履歴：2026-11-10 に、例題Sourceと Knowledge 2件をもとに初版を作成した。以前の内容は「まだ登録された情報源がありません」というプレースホルダであり、初版の作成にあたって置き換えた。2026-11-11 に、ドット絵生成の情報源1件と Knowledge 2件を追加した。
