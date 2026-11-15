@@ -3,9 +3,9 @@ title: "人工知能"
 categories: ["AI"]
 tags: ["artificial-intelligence"]
 created_at: "2026-11-09"
-updated_at: "2026-11-11"
-sources: ["../sources/social/x/2026-11-03-critical-thinking-when-agents-do-the-work.md", "../sources/articles/2025-08-05-chatgpt-pixel-art-guide.md", "../sources/social/x/2026-11-11-llm-agent-hft-self-improvement.md"]
-related: ["../knowledge/ai/cognitive-surrender-and-cognitive-debt.md", "../knowledge/ai/verification-for-agent-work.md", "../knowledge/ai/ai-pixel-art-generation-methods.md", "../knowledge/ai/pixel-art-prompt-design.md", "../knowledge/ai/agent-self-improvement-loop-design.md", "../knowledge/ai/backtest-latency-correction.md"]
+updated_at: "2026-11-15"
+sources: ["../sources/social/x/2026-11-03-critical-thinking-when-agents-do-the-work.md", "../sources/articles/2025-08-05-chatgpt-pixel-art-guide.md", "../sources/social/x/2026-11-11-llm-agent-hft-self-improvement.md", "../sources/technical/2026-02-22-gguf-llm-qiita.md"]
+related: ["../knowledge/ai/cognitive-surrender-and-cognitive-debt.md", "../knowledge/ai/verification-for-agent-work.md", "../knowledge/ai/ai-pixel-art-generation-methods.md", "../knowledge/ai/pixel-art-prompt-design.md", "../knowledge/ai/agent-self-improvement-loop-design.md", "../knowledge/ai/backtest-latency-correction.md", "../knowledge/ai/gguf-format-structure.md", "../knowledge/ai/llm-quantization-types-and-selection.md", "../knowledge/ai/gguf-practical-workflow.md"]
 ---
 
 # 人工知能
@@ -20,7 +20,9 @@ related: ["../knowledge/ai/cognitive-surrender-and-cognitive-debt.md", "../knowl
 
 同日、3件目の情報源として、おもしろフラッシュトレード倉庫の記事「LLM エージェントを活用した高頻度売買システムの自己改善ワークフロー構築」（2026-11-11）を追加した。こちらは、エージェントに自己改善ループを回させ、ほぼ人間の介入なしに運用する実践であり、委譲の度合いが最も深い事例である。このテーマの観点では、自己改善ループの信頼性が検証（バックテスト）の質で決まる点が、初版の「検証の層」と直接つながる。新しい情報源については §6 と §9 に記録する。
 
-更新履歴：2026-11-10 に、例題Sourceと Knowledge 2件をもとに初版を作成した。2026-11-11 に、ドット絵生成の情報源1件と Knowledge 2件を追加した。同日、3件目の情報源として、HFT bot の自己改善ループの情報源1件と Knowledge 2件を追加した。
+2026-11-15 に、4件目の情報源として、GeneLab_999 の記事「GGUFってなんだ？〜ローカルLLMの「共通言語」を完全理解する〜」（2026-02-22）を追加した。こちらは、エージェントへの委譲や生成AIの使い方とは別の側面で、LLM をローカルで動かすための基盤技術（モデルファイル形式 GGUF と量子化）を扱うものである。このテーマの中心である「任せた結果をどう確かめるか」という観点とは直接は重ならないが、エージェントを動かすモデルの実行基盤として位置づけられる。新しい情報源については §6 と §9 に記録する。§2〜§5 の体系への統合は、ローカルLLM基盤の情報源が増えた段階で改めて検討する。
+
+更新履歴：2026-11-10 に、例題Sourceと Knowledge 2件をもとに初版を作成した。2026-11-11 に、ドット絵生成の情報源1件と Knowledge 2件を追加した。同日、3件目の情報源として、HFT bot の自己改善ループの情報源1件と Knowledge 2件を追加した。2026-11-15 に、GGUF と量子化の情報源1件と Knowledge 3件を追加した。
 
 ## 2. 基本概念
 
@@ -66,6 +68,9 @@ AIエージェントと批判的思考の関係は、次の三つの層で整理
 - [ドット絵生成のプロンプト設計](../knowledge/ai/pixel-art-prompt-design.md) — 5W1H + 技術仕様、段階的詳細化、制約の優先順位という指示の原則と、ぼやけ・色数・比率の問題への対処を整理した知識。
 - [エージェント自己改善ループの設計](../knowledge/ai/agent-self-improvement-loop-design.md) — 定期実行・データ蓄積・知見集約の3要素と、experiments と findings の二層構造で、エージェントが改善を回し続ける仕組みを整理した知識。
 - [バックテストにおけるレイテンシ補正](../knowledge/ai/backtest-latency-correction.md) — ヒストリカルデータに実稼働の遅延を反映させ、バックテストの検証精度を上げる方法を整理した知識。
+- [GGUFフォーマットの構造と設計](../knowledge/ai/gguf-format-structure.md) — 重み・メタデータ・トークナイザーを1ファイルに自己完結させる GGUF の構造と、safetensors との住み分けを整理した知識。
+- [LLMの量子化タイプの読み解きと選択](../knowledge/ai/llm-quantization-types-and-selection.md) — 量子化タイプの記号の読み方、K-Quant の仕組み、VRAM 容量別の選択指針を整理した知識。
+- [GGUFの実践ワークフロー（変換・量子化・実行）](../knowledge/ai/gguf-practical-workflow.md) — 変換・量子化・推論・API 化の4ステップと、Ollama 連携、よくあるエラーへの対処を整理した知識。
 
 ## 7. 最新の動向
 
@@ -87,4 +92,5 @@ AIエージェントと批判的思考の関係は、次の三つの層で整理
 - [Critical thinking when agents do the work](../sources/social/x/2026-11-03-critical-thinking-when-agents-do-the-work.md) — Addy Osmani による X の長文記事（2026-11-03）。このテーマの初版の情報源である。
 - [ChatGPT×ドット絵ピクセルアートの作成手順やプロンプト完全ガイド](../sources/articles/2025-08-05-chatgpt-pixel-art-guide.md) — キレカクの記事（2025-08-05）。生成AIでドット絵を作る方法とプロンプト設計の情報源である。
 - [LLM エージェントを活用した高頻度売買システムの自己改善ワークフロー構築](../sources/social/x/2026-11-11-llm-agent-hft-self-improvement.md) — おもしろフラッシュトレード倉庫による X の長文記事（2026-11-11）。エージェントの自己改善ループと、検証としてのバックテストの実践の情報源である。
-- 更新履歴：2026-11-10 に、例題Sourceと Knowledge 2件をもとに初版を作成した。以前の内容は「まだ登録された情報源がありません」というプレースホルダであり、初版の作成にあたって置き換えた。2026-11-11 に、ドット絵生成の情報源1件と Knowledge 2件を追加した。同日、HFT bot の自己改善ループの情報源1件と Knowledge 2件を追加した。
+- [GGUFってなんだ？〜ローカルLLMの「共通言語」を完全理解する〜](../sources/technical/2026-02-22-gguf-llm-qiita.md) — GeneLab_999 による Qiita 記事（2026-02-22）。ローカルLLMのモデル形式 GGUF と量子化の解説であり、エージェントを動かすモデルの実行基盤の情報源である。
+- 更新履歴：2026-11-10 に、例題Sourceと Knowledge 2件をもとに初版を作成した。以前の内容は「まだ登録された情報源がありません」というプレースホルダであり、初版の作成にあたって置き換えた。2026-11-11 に、ドット絵生成の情報源1件と Knowledge 2件を追加した。同日、HFT bot の自己改善ループの情報源1件と Knowledge 2件を追加した。2026-11-15 に、GGUF と量子化の情報源1件と Knowledge 3件を追加した。
