@@ -3,9 +3,9 @@ title: "人工知能"
 categories: ["AI"]
 tags: ["artificial-intelligence"]
 created_at: "2026-11-09"
-updated_at: "2026-11-15"
-sources: ["../sources/social/x/2026-11-03-critical-thinking-when-agents-do-the-work.md", "../sources/articles/2025-08-05-chatgpt-pixel-art-guide.md", "../sources/social/x/2026-11-11-llm-agent-hft-self-improvement.md", "../sources/technical/2026-02-22-gguf-llm-qiita.md"]
-related: ["../knowledge/ai/cognitive-surrender-and-cognitive-debt.md", "../knowledge/ai/verification-for-agent-work.md", "../knowledge/ai/ai-pixel-art-generation-methods.md", "../knowledge/ai/pixel-art-prompt-design.md", "../knowledge/ai/agent-self-improvement-loop-design.md", "../knowledge/ai/backtest-latency-correction.md", "../knowledge/ai/gguf-format-structure.md", "../knowledge/ai/llm-quantization-types-and-selection.md", "../knowledge/ai/gguf-practical-workflow.md"]
+updated_at: "2026-11-17"
+sources: ["../sources/social/x/2026-11-03-critical-thinking-when-agents-do-the-work.md", "../sources/articles/2025-08-05-chatgpt-pixel-art-guide.md", "../sources/social/x/2026-11-11-llm-agent-hft-self-improvement.md", "../sources/technical/2026-02-22-gguf-llm-qiita.md", "../sources/technical/2026-09-24-harness-design-introduction.md"]
+related: ["../knowledge/ai/cognitive-surrender-and-cognitive-debt.md", "../knowledge/ai/verification-for-agent-work.md", "../knowledge/ai/ai-pixel-art-generation-methods.md", "../knowledge/ai/pixel-art-prompt-design.md", "../knowledge/ai/agent-self-improvement-loop-design.md", "../knowledge/ai/backtest-latency-correction.md", "../knowledge/ai/gguf-format-structure.md", "../knowledge/ai/llm-quantization-types-and-selection.md", "../knowledge/ai/gguf-practical-workflow.md", "../knowledge/ai/harness-definitions-and-schools.md", "../knowledge/ai/harness-and-guardrail-design.md", "../knowledge/ai/boundaries-and-security-for-agents.md", "../knowledge/ai/harness-operations-and-lifespan.md"]
 ---
 
 # 人工知能
@@ -22,7 +22,9 @@ related: ["../knowledge/ai/cognitive-surrender-and-cognitive-debt.md", "../knowl
 
 2026-11-15 に、4件目の情報源として、GeneLab_999 の記事「GGUFってなんだ？〜ローカルLLMの「共通言語」を完全理解する〜」（2026-02-22）を追加した。こちらは、エージェントへの委譲や生成AIの使い方とは別の側面で、LLM をローカルで動かすための基盤技術（モデルファイル形式 GGUF と量子化）を扱うものである。このテーマの中心である「任せた結果をどう確かめるか」という観点とは直接は重ならないが、エージェントを動かすモデルの実行基盤として位置づけられる。新しい情報源については §6 と §9 に記録する。§2〜§5 の体系への統合は、ローカルLLM基盤の情報源が増えた段階で改めて検討する。
 
-更新履歴：2026-11-10 に、例題Sourceと Knowledge 2件をもとに初版を作成した。2026-11-11 に、ドット絵生成の情報源1件と Knowledge 2件を追加した。同日、3件目の情報源として、HFT bot の自己改善ループの情報源1件と Knowledge 2件を追加した。2026-11-15 に、GGUF と量子化の情報源1件と Knowledge 3件を追加した。
+2026-11-17 に、5件目の情報源として、木下雄一朗（kinopee）のスライド「ハーネス設計入門 〜 基礎知識の整理から実務へのステップアップ 〜」（2026-09-24）を追加した。こちらは、エージェントが同じ失敗を繰り返さないようモデルの外側（環境）を設計するハーネスエンジニアリングを扱うものである。このテーマの「検証の層」と直接つながる内容で、検証の考え方が、ハーネス（事前の意図伝達）とガードレール（機械的な検証）の区別、フィードバック・ループ、さらに境界という第3の層へと広がっている。検証の習慣が人の側の実践だとすれば、ハーネス設計はエージェントが自分で検証して直せる環境の側の設計であり、両者は補完関係にある。新しい情報源については §6 と §9 に記録する。
+
+更新履歴：2026-11-10 に、例題Sourceと Knowledge 2件をもとに初版を作成した。2026-11-11 に、ドット絵生成の情報源1件と Knowledge 2件を追加した。同日、3件目の情報源として、HFT bot の自己改善ループの情報源1件と Knowledge 2件を追加した。2026-11-15 に、GGUF と量子化の情報源1件と Knowledge 3件を追加した。2026-11-17 に、ハーネス設計の情報源1件と Knowledge 4件を追加した。
 
 ## 2. 基本概念
 
@@ -71,6 +73,10 @@ AIエージェントと批判的思考の関係は、次の三つの層で整理
 - [GGUFフォーマットの構造と設計](../knowledge/ai/gguf-format-structure.md) — 重み・メタデータ・トークナイザーを1ファイルに自己完結させる GGUF の構造と、safetensors との住み分けを整理した知識。
 - [LLMの量子化タイプの読み解きと選択](../knowledge/ai/llm-quantization-types-and-selection.md) — 量子化タイプの記号の読み方、K-Quant の仕組み、VRAM 容量別の選択指針を整理した知識。
 - [GGUFの実践ワークフロー（変換・量子化・実行）](../knowledge/ai/gguf-practical-workflow.md) — 変換・量子化・推論・API 化の4ステップと、Ollama 連携、よくあるエラーへの対処を整理した知識。
+- [ハーネスの定義と流派](../knowledge/ai/harness-definitions-and-schools.md) — ハーネスの定義、5つの流派、包含関係の対立、2026年の語彙の収束と標準化を整理した知識。
+- [ハーネスとガードレールの設計](../knowledge/ai/harness-and-guardrail-design.md) — ハーネス（事前の伝達）とガードレール（機械的な判定）の2つの仕組み、柵の階層とレール、フィードバック・ループを整理した知識。
+- [境界とセキュリティ](../knowledge/ai/boundaries-and-security-for-agents.md) — 第3の層である境界（到達不能化）の役割と、lethal trifecta を中心とするセキュリティを整理した知識。
+- [ハーネスの運用と寿命](../knowledge/ai/harness-operations-and-lifespan.md) — 作業の順序、コスト、技術的負債としてのハーネス、4原則を整理した知識。
 
 ## 7. 最新の動向
 
@@ -93,4 +99,5 @@ AIエージェントと批判的思考の関係は、次の三つの層で整理
 - [ChatGPT×ドット絵ピクセルアートの作成手順やプロンプト完全ガイド](../sources/articles/2025-08-05-chatgpt-pixel-art-guide.md) — キレカクの記事（2025-08-05）。生成AIでドット絵を作る方法とプロンプト設計の情報源である。
 - [LLM エージェントを活用した高頻度売買システムの自己改善ワークフロー構築](../sources/social/x/2026-11-11-llm-agent-hft-self-improvement.md) — おもしろフラッシュトレード倉庫による X の長文記事（2026-11-11）。エージェントの自己改善ループと、検証としてのバックテストの実践の情報源である。
 - [GGUFってなんだ？〜ローカルLLMの「共通言語」を完全理解する〜](../sources/technical/2026-02-22-gguf-llm-qiita.md) — GeneLab_999 による Qiita 記事（2026-02-22）。ローカルLLMのモデル形式 GGUF と量子化の解説であり、エージェントを動かすモデルの実行基盤の情報源である。
-- 更新履歴：2026-11-10 に、例題Sourceと Knowledge 2件をもとに初版を作成した。以前の内容は「まだ登録された情報源がありません」というプレースホルダであり、初版の作成にあたって置き換えた。2026-11-11 に、ドット絵生成の情報源1件と Knowledge 2件を追加した。同日、HFT bot の自己改善ループの情報源1件と Knowledge 2件を追加した。2026-11-15 に、GGUF と量子化の情報源1件と Knowledge 3件を追加した。
+- [ハーネス設計入門 〜 基礎知識の整理から実務へのステップアップ 〜](../sources/technical/2026-09-24-harness-design-introduction.md) — 木下雄一朗（kinopee）によるスライド資料（2026-09-24、Findy 主催 Web セミナー）。ハーネスエンジニアリングの定義と実践の情報源である。
+- 更新履歴：2026-11-10 に、例題Sourceと Knowledge 2件をもとに初版を作成した。以前の内容は「まだ登録された情報源がありません」というプレースホルダであり、初版の作成にあたって置き換えた。2026-11-11 に、ドット絵生成の情報源1件と Knowledge 2件を追加した。同日、HFT bot の自己改善ループの情報源1件と Knowledge 2件を追加した。2026-11-15 に、GGUF と量子化の情報源1件と Knowledge 3件を追加した。2026-11-17 に、ハーネス設計の情報源1件と Knowledge 4件を追加した。
