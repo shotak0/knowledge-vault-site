@@ -50,6 +50,10 @@ export default defineConfig({
 					label: '情報源一覧',
 					link: '/all-sources/',
 				},
+				{
+					label: '知識の概観',
+					link: '/overview/',
+				},
 			],
 		}),
 	],

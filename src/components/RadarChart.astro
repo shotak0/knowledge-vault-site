@@ -1,0 +1,113 @@
+---
+// カテゴリ別件数のレーダーチャート（サーバー側で SVG を描画する）。
+// data: [{ label, value }]、目盛りの最大値は 5 の倍数へ切り上げる。
+interface Props {
+	data: { label: string; value: number }[];
+}
+const { data } = Astro.props;
+
+const maxValue = Math.max(...data.map((d) => d.value), 1);
+const scaleMax = Math.ceil(maxValue / 5) * 5;
+const rings = [0.25, 0.5, 0.75, 1].map((f) => Math.round(scaleMax * f));
+
+const cx = 170;
+const cy = 150;
+const R = 100;
+const point = (i: number, v: number) => {
+	const ang = -Math.PI / 2 + (i * 2 * Math.PI) / data.length;
+	const r = (v / scaleMax) * R;
+	return [cx + r * Math.cos(ang), cy + r * Math.sin(ang)] as const;
+};
+const polygon = (v: number) =>
+	data.map((_, i) => point(i, v).join(',')).join(' ');
+const dataPoints = data.map((d, i) => point(i, d.value));
+const labels = data.map((d, i) => {
+	const ang = -Math.PI / 2 + (i * 2 * Math.PI) / data.length;
+	return {
+		...d,
+		x: cx + (R + 26) * Math.cos(ang),
+		y: cy + (R + 22) * Math.sin(ang),
+	};
+});
+---
+
+<div class="radar-wrap">
+	<svg
+		viewBox="0 0 340 300"
+		width="340"
+		height="300"
+		role="img"
+		aria-label="カテゴリ別件数のレーダーチャート"
+	>
+		{
+			rings.map((rv) => {
+				const [lx, ly] = point(0, rv);
+				return (
+					<>
+						<polygon points={polygon(rv)} class="ring" />
+						<text x={lx + 4} y={ly - 3} class="ring-label">
+							{rv}
+						</text>
+					</>
+				);
+			})
+		}
+		{
+			data.map((_, i) => {
+				const [x, y] = point(i, scaleMax);
+				return <line x1={cx} y1={cy} x2={x} y2={y} class="axis" />;
+			})
+		}
+		<polygon points={dataPoints.map((p) => p.join(',')).join(' ')} class="area" />
+		{dataPoints.map(([x, y]) => <circle cx={x} cy={y} r="3.5" class="dot" />)}
+		{
+			labels.map((l) => (
+				<>
+					<text x={l.x} y={l.y} text-anchor="middle" class="axis-label">
+						{l.label}
+					</text>
+					<text x={l.x} y={l.y + 16} text-anchor="middle" class="count-label">
+						{l.value} 件
+					</text>
+				</>
+			))
+		}
+	</svg>
+</div>
+
+<style>
+	.radar-wrap {
+		display: flex;
+		justify-content: center;
+	}
+	svg text {
+		fill: var(--sl-color-text);
+		font-size: 13px;
+	}
+	.ring {
+		fill: none;
+		stroke: var(--sl-color-gray-5);
+		stroke-width: 1;
+	}
+	.axis {
+		stroke: var(--sl-color-gray-5);
+		stroke-width: 1;
+	}
+	.ring-label,
+	.count-label {
+		fill: var(--sl-color-gray-3);
+		font-size: 10px;
+	}
+	.area {
+		fill: var(--sl-color-accent);
+		fill-opacity: 0.16;
+		stroke: var(--sl-color-accent);
+		stroke-width: 2;
+	}
+	.dot {
+		fill: var(--sl-color-accent);
+	}
+	.axis-label {
+		font-weight: 600;
+	}
+</style>

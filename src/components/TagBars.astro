@@ -1,0 +1,64 @@
+---
+// タグ別件数の横棒グラフ（上位のみを渡す想定）。
+// tags: [[名前, 件数], ...]（件数の多い順）
+interface Props {
+	tags: [string, number][];
+}
+const { tags } = Astro.props;
+const max = Math.max(...tags.map(([, n]) => n), 1);
+---
+
+<div class="bars">
+	{
+		tags.map(([name, n]) => (
+			<div class="bar-row">
+				<span class="name">{name}</span>
+				<div class="track">
+					<div class="fill" style={`width: ${(n / max) * 100}%`} />
+				</div>
+				<span class="num">{n}</span>
+			</div>
+		))
+	}
+</div>
+
+<style>
+	.bars {
+		display: grid;
+		gap: 9px;
+	}
+	.bar-row {
+		display: grid;
+		grid-template-columns: 148px 1fr 28px;
+		align-items: center;
+		gap: 10px;
+		font-size: 13px;
+	}
+	.name {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	.track {
+		background: var(--sl-color-gray-6);
+		border-radius: 6px;
+		height: 16px;
+		overflow: hidden;
+	}
+	.fill {
+		background: var(--sl-color-accent);
+		height: 100%;
+		border-radius: 6px;
+	}
+	.num {
+		text-align: right;
+		font-variant-numeric: tabular-nums;
+		color: var(--sl-color-gray-3);
+	}
+	@media (max-width: 480px) {
+		.bar-row {
+			grid-template-columns: 118px 1fr 24px;
+			font-size: 12px;
+		}
+	}
+</style>
