@@ -3,9 +3,9 @@ title: "人工知能"
 categories: ["AI"]
 tags: ["artificial-intelligence"]
 created_at: "2026-11-09"
-updated_at: "2026-11-19"
-sources: ["../sources/social/x/2026-11-03-critical-thinking-when-agents-do-the-work.md", "../sources/articles/2025-08-05-chatgpt-pixel-art-guide.md", "../sources/social/x/2026-11-11-llm-agent-hft-self-improvement.md", "../sources/technical/2026-02-22-gguf-llm-qiita.md", "../sources/technical/2026-09-24-harness-design-introduction.md", "../sources/articles/2026-11-05-stopped-building-custom-ai-agent.md", "../sources/technical/2026-10-16-oss-ai-agent-harness-philosophy.md"]
-related: ["../knowledge/ai/cognitive-surrender-and-cognitive-debt.md", "../knowledge/ai/verification-for-agent-work.md", "../knowledge/ai/ai-pixel-art-generation-methods.md", "../knowledge/ai/pixel-art-prompt-design.md", "../knowledge/ai/agent-self-improvement-loop-design.md", "../knowledge/ai/backtest-latency-correction.md", "../knowledge/ai/gguf-format-structure.md", "../knowledge/ai/llm-quantization-types-and-selection.md", "../knowledge/ai/gguf-practical-workflow.md", "../knowledge/ai/harness-definitions-and-schools.md", "../knowledge/ai/harness-and-guardrail-design.md", "../knowledge/ai/boundaries-and-security-for-agents.md", "../knowledge/ai/harness-operations-and-lifespan.md", "../knowledge/ai/custom-agent-vs-general-agent-with-mcp.md", "../knowledge/ai/agent-memory-design-challenges.md", "../knowledge/ai/data-foundation-for-analysis-agents.md", "../knowledge/ai/harness-shapes-by-trust-in-ai.md", "../knowledge/ai/rules-as-traps-not-maps.md", "../knowledge/ai/agreements-for-autonomous-agents.md"]
+updated_at: "2026-11-23"
+sources: ["../sources/social/x/2026-11-03-critical-thinking-when-agents-do-the-work.md", "../sources/articles/2025-08-05-chatgpt-pixel-art-guide.md", "../sources/social/x/2026-11-11-llm-agent-hft-self-improvement.md", "../sources/technical/2026-02-22-gguf-llm-qiita.md", "../sources/technical/2026-09-24-harness-design-introduction.md", "../sources/articles/2026-11-05-stopped-building-custom-ai-agent.md", "../sources/technical/2026-10-16-oss-ai-agent-harness-philosophy.md", "../sources/social/x/2026-11-22-agent-platform-of-2027.md"]
+related: ["../knowledge/ai/cognitive-surrender-and-cognitive-debt.md", "../knowledge/ai/verification-for-agent-work.md", "../knowledge/ai/ai-pixel-art-generation-methods.md", "../knowledge/ai/pixel-art-prompt-design.md", "../knowledge/ai/agent-self-improvement-loop-design.md", "../knowledge/ai/backtest-latency-correction.md", "../knowledge/ai/gguf-format-structure.md", "../knowledge/ai/llm-quantization-types-and-selection.md", "../knowledge/ai/gguf-practical-workflow.md", "../knowledge/ai/harness-definitions-and-schools.md", "../knowledge/ai/harness-and-guardrail-design.md", "../knowledge/ai/boundaries-and-security-for-agents.md", "../knowledge/ai/harness-operations-and-lifespan.md", "../knowledge/ai/custom-agent-vs-general-agent-with-mcp.md", "../knowledge/ai/agent-memory-design-challenges.md", "../knowledge/ai/data-foundation-for-analysis-agents.md", "../knowledge/ai/harness-shapes-by-trust-in-ai.md", "../knowledge/ai/rules-as-traps-not-maps.md", "../knowledge/ai/agreements-for-autonomous-agents.md", "../knowledge/ai/agent-platform-blueprint.md", "../knowledge/ai/session-conversation-separation.md", "../knowledge/ai/apps-as-forkable-artifacts.md"]
 ---
 
 # 人工知能
@@ -28,7 +28,9 @@ related: ["../knowledge/ai/cognitive-surrender-and-cognitive-debt.md", "../knowl
 
 2026-11-19 に、7件目の情報源として、松本 淳太郎の記事「ハーネスエンジニアリングを有名OSSはどう組んでいるのか？AIへの信頼で比べる5事例」（2026-10-16）を追加した。こちらは、ハーネス設計の考え方を整理したスライドとは対になる、実プロジェクトの事例の側の情報源である。Zed・Sentry・OpenClaw・Bun・PostHog の実ファイルを、AI への信頼の厚さという軸で読み比べており、ハーネス（事前の伝達）に寄せるか、ガードレール（機械的な判定）に寄せるかという既存の体系の区別が、実際のプロジェクトの設計でも読み取れることを示している。新しい情報源については §6 と §9 に記録する。
 
-更新履歴：2026-11-10 に、例題Sourceと Knowledge 2件をもとに初版を作成した。2026-11-11 に、ドット絵生成の情報源1件と Knowledge 2件を追加した。同日、3件目の情報源として、HFT bot の自己改善ループの情報源1件と Knowledge 2件を追加した。2026-11-15 に、GGUF と量子化の情報源1件と Knowledge 3件を追加した。2026-11-17 に、ハーネス設計の情報源1件と Knowledge 4件を追加した。2026-11-19 に、自作エージェントから MCP への移行の情報源1件と Knowledge 3件を追加した。同日、OSS のハーネス事例の情報源1件と Knowledge 3件を追加した。
+2026-11-23 に、8件目の情報源として、John Suh の X ポスト「Agent platform of 2027」（2026-11-22）を追加した。こちらは、これまでの情報源が扱ってきた個別の設計判断（ハーネス、自作か汎用か、検証）よりも一段上位の、多数のエージェントを載せる基盤そのものの設計図を扱うものである。実行モデル（アクター）、環境、ファイルシステムと権限、セッションと会話の分離、承認インボックス、リスナー、コード定義ワークフロー、アプリ＝アーティファクトという8要素からなり、特に「セッションを見せず会話を見せる」という UI の原則と、承認の地点を明示するインボックスの考え方は、このテーマの「検証の層」「責任の層」ともつながる。全体は著者のビジョン（予測）の提示であり、実証ではない点は割り引いて読む必要がある。新しい情報源については §6 と §9 に記録する。
+
+更新履歴：2026-11-10 に、例題Sourceと Knowledge 2件をもとに初版を作成した。2026-11-11 に、ドット絵生成の情報源1件と Knowledge 2件を追加した。同日、3件目の情報源として、HFT bot の自己改善ループの情報源1件と Knowledge 2件を追加した。2026-11-15 に、GGUF と量子化の情報源1件と Knowledge 3件を追加した。2026-11-17 に、ハーネス設計の情報源1件と Knowledge 4件を追加した。2026-11-19 に、自作エージェントから MCP への移行の情報源1件と Knowledge 3件を追加した。同日、OSS のハーネス事例の情報源1件と Knowledge 3件を追加した。2026-11-23 に、エージェントプラットフォームの設計図の情報源1件と Knowledge 3件を追加した。
 
 ## 2. 基本概念
 
@@ -87,6 +89,9 @@ AIエージェントと批判的思考の関係は、次の三つの層で整理
 - [AIへの信頼度で変わるハーネスの形（5つのOSSの比較）](../knowledge/ai/harness-shapes-by-trust-in-ai.md) — Zed・Sentry・OpenClaw・Bun・PostHog のハーネスを、AI への信頼の厚さで読み比べる枠組みを整理した知識。
 - [ルールは地図ではなく罠：新規ルールの3条件と索引型の構成](../knowledge/ai/rules-as-traps-not-maps.md) — Zed の新規ルールの3条件と追加提案の運用、Sentry の索引型の構成を整理した知識。
 - [エージェントを自走させる取り決め：任せる判断と聞く判断の線引き](../knowledge/ai/agreements-for-autonomous-agents.md) — OpenClaw の、任せる判断と聞く判断の線引き、返事がないことを承認とみなさない原則、止まる条件を整理した知識。
+- [エージェントプラットフォームの設計図：8つの構成要素](../knowledge/ai/agent-platform-blueprint.md) — 多数のエージェントを載せる基盤の設計を、実行モデル・環境・ファイルシステムと権限・UI・イベント・ワークフロー・アプリの8要素に分解した知識。
+- [セッションと会話の分離と承認インボックス](../knowledge/ai/session-conversation-separation.md) — エージェントの実行（セッション）をそのまま見せず、抽象化された会話と、承認と質問のインボックスをユーザー向けの面とする設計原則を整理した知識。
+- [アプリ＝フォークできるアーティファクトという考え方](../knowledge/ai/apps-as-forkable-artifacts.md) — アプリを利用者のファイルシステム内にあるフォーク可能なものと定義し、垂直 SaaS の「業務は共通」という前提への批判と結びつけた知識。
 
 ## 7. 最新の動向
 
@@ -112,4 +117,5 @@ AIエージェントと批判的思考の関係は、次の三つの層で整理
 - [ハーネス設計入門 〜 基礎知識の整理から実務へのステップアップ 〜](../sources/technical/2026-09-24-harness-design-introduction.md) — 木下雄一朗（kinopee）によるスライド資料（2026-09-24、Findy 主催 Web セミナー）。ハーネスエンジニアリングの定義と実践の情報源である。
 - [自作AIエージェントの開発をやめた](../sources/articles/2026-11-05-stopped-building-custom-ai-agent.md) — ブログ「無駄と文化」の記事（2026-11-05）。分析エージェントの自作をやめ、分析 MCP に作り直した経験と、メモリーの難所、データ基盤の重要さの情報源である。
 - [ハーネスエンジニアリングを有名OSSはどう組んでいるのか？AIへの信頼で比べる5事例](../sources/technical/2026-10-16-oss-ai-agent-harness-philosophy.md) — 松本 淳太郎（Gibberish Lab）による記事（2026-10-16）。5つの OSS のハーネスの実ファイルを、AI への信頼の軸で読み比べた情報源である。
-- 更新履歴：2026-11-10 に、例題Sourceと Knowledge 2件をもとに初版を作成した。以前の内容は「まだ登録された情報源がありません」というプレースホルダであり、初版の作成にあたって置き換えた。2026-11-11 に、ドット絵生成の情報源1件と Knowledge 2件を追加した。同日、HFT bot の自己改善ループの情報源1件と Knowledge 2件を追加した。2026-11-15 に、GGUF と量子化の情報源1件と Knowledge 3件を追加した。2026-11-17 に、ハーネス設計の情報源1件と Knowledge 4件を追加した。2026-11-19 に、自作エージェントから MCP への移行の情報源1件と Knowledge 3件を追加した。同日、OSS のハーネス事例の情報源1件と Knowledge 3件を追加した。
+- [Agent platform of 2027](../sources/social/x/2026-11-22-agent-platform-of-2027.md) — John Suh による X の長文ポスト（2026-11-22）。2027年のエージェントプラットフォームの設計図を、画像4枚の8要素で提示した情報源である。
+- 更新履歴：2026-11-10 に、例題Sourceと Knowledge 2件をもとに初版を作成した。以前の内容は「まだ登録された情報源がありません」というプレースホルダであり、初版の作成にあたって置き換えた。2026-11-11 に、ドット絵生成の情報源1件と Knowledge 2件を追加した。同日、HFT bot の自己改善ループの情報源1件と Knowledge 2件を追加した。2026-11-15 に、GGUF と量子化の情報源1件と Knowledge 3件を追加した。2026-11-17 に、ハーネス設計の情報源1件と Knowledge 4件を追加した。2026-11-19 に、自作エージェントから MCP への移行の情報源1件と Knowledge 3件を追加した。同日、OSS のハーネス事例の情報源1件と Knowledge 3件を追加した。2026-11-23 に、エージェントプラットフォームの設計図の情報源1件と Knowledge 3件を追加した。
