@@ -3,9 +3,9 @@ title: "デザインエンジニアリング"
 categories: ["AI", "Programming"]
 tags: ["design-engineering"]
 created_at: "2026-11-17"
-updated_at: "2026-11-19"
-sources: ["../sources/technical/2026-03-16-emil-kowalski-skills.md", "../sources/technical/2026-04-27-hallmark.md", "../sources/technical/2026-03-23-modern-web-guidance.md"]
-related: ["../knowledge/design/animation-and-feel-decisions.md", "../knowledge/design/design-corrections-as-rules.md", "../knowledge/design/ai-slop-tells-and-quality-gates.md", "../knowledge/programming/prefer-native-web-platform-features.md"]
+updated_at: "2026-11-26"
+sources: ["../sources/technical/2026-03-16-emil-kowalski-skills.md", "../sources/technical/2026-04-27-hallmark.md", "../sources/technical/2026-03-23-modern-web-guidance.md", "../sources/articles/2024-03-24-ndfb89d32b555.md"]
+related: ["../knowledge/design/animation-and-feel-decisions.md", "../knowledge/design/design-corrections-as-rules.md", "../knowledge/design/ai-slop-tells-and-quality-gates.md", "../knowledge/programming/prefer-native-web-platform-features.md", "../knowledge/design/axiomatic-design-independence.md"]
 ---
 
 # デザインエンジニアリング
@@ -16,7 +16,9 @@ related: ["../knowledge/design/animation-and-feel-decisions.md", "../knowledge/d
 
 情報源は3件である。Emil Kowalski のスキル集（判断基準の言語化）、Hallmark（slop の検出と品質ゲート）、GoogleChrome/modern-web-guidance（プラットフォーム標準の地図と安全な採用）。いずれも GitHub リポジトリであり、2026-11-17 時点の README をもとに登録した。リポジトリは更新され続けるため、本テーマの記述も時点情報である。
 
-更新履歴：2026-11-17 に、情報源3件と Knowledge 4件をもとに初版を作成した。
+2026-11-26 に、別系統の情報源として、涼介「設計理論の考察（公理的設計：まとめ）」を追加した。これは AI エージェント時代の実践ではなく、Nam P. Suh の公理的設計という古典的な設計理論を扱うものである。「良い設計とは何か」を公理で判定するという発想は、上記3件の「判断の層」のさらに土台にあたる問いであり、系統の違いを明示したうえで本テーマに含める。
+
+更新履歴：2026-11-17 に、情報源3件と Knowledge 4件をもとに初版を作成した。2026-11-26 に、公理的設計の情報源1件と Knowledge 1件を追加した。
 
 ## 2. 基本概念
 
@@ -26,6 +28,7 @@ related: ["../knowledge/design/animation-and-feel-decisions.md", "../knowledge/d
 - **品質ゲート**：納品可否の判定層。Hallmark の Floor（絶対）／Reflex（理由つきで可逆）／Finish（仕上げ）の3層が代表例。
 - **デザインシステムと DESIGN.md**：色・書体・余白のトークンと部品を1つに決めて記録し、制作の前提として使い回す仕組み。修正をルール化して蓄積する受け皿でもある。
 - **プラットフォーム標準の優先**：ブラウザ標準の機能（dialog、popover、コンテナクエリ、oklch 等）を先に検討し、JS での再実装を後にする考え方。
+- **公理的設計（Axiomatic Design）**：Suh の設計理論。設計を FR（何を達成するか）から DP（どう達成するか）への写像と捉え、独立公理（FR の独立を保つ）と情報公理（情報量を最小にする）の2公理で良し悪しを判定する。設計行列が対角なら非結合、三角なら分離可能、それ以外は結合、という形の判定を与える。
 
 ## 3. 技術・知識の体系
 
@@ -36,6 +39,8 @@ related: ["../knowledge/design/animation-and-feel-decisions.md", "../knowledge/d
 3. **蓄積の層**：修正と判断をルールとして残し、次の制作の前提にする。DESIGN.md への蓄積と pre-flight での読み込み（[デザイン修正をルールとして蓄積する](../knowledge/design/design-corrections-as-rules.md)）。
 
 質は単発の指示ではなく、この3層の循環で作られる。
+
+これとは別系統に、公理的設計の層がある。これは質を作る工程ではなく、「良い設計とは何か」という判定の土台である。FR と DP を分けて書き、結合を設計行列の形で判定する考え方は、UI の質に限らず、設計一般の議論で使える物差しになる（[公理的設計：機能要求の独立を保つ](../knowledge/design/axiomatic-design-independence.md)）。
 
 ## 4. 重要な論点
 
@@ -55,12 +60,15 @@ related: ["../knowledge/design/animation-and-feel-decisions.md", "../knowledge/d
 
 共通点は、「エージェントの既定出力を矯正する知識を、どういう形で配るか」を各々が設計していることである。相違点は、矯正の対象が判断（Emil）、見た目の型と工程（Hallmark）、プラットフォーム知識（MWG）と分かれていることである。
 
+これら3件とは別に、公理的設計の情報源（涼介のまとめ記事）は、エージェントへの知識の配り方ではなく、設計理論そのものを扱う。対象も UI ではなく製造系の製品・プロセス設計が中心であり、位置づけは「判断の層」の前提となる設計観である。3件との共通点は、「何が良い設計か」を言語化し、判定可能にしようとする姿勢にある。
+
 ## 6. 関連するKnowledge
 
 - [アニメーションと質感の判断基準](../knowledge/design/animation-and-feel-decisions.md) — イージング、影、振り付け、ジェスチャ、スマホの作法など、動きと質感の既定値。
 - [デザイン修正をルールとして蓄積する](../knowledge/design/design-corrections-as-rules.md) — learn-taste と DESIGN.md による、修正のルール化と蓄積の循環。
 - [AI 生成 UI の slop サインと品質ゲート](../knowledge/design/ai-slop-tells-and-quality-gates.md) — tells の列挙と、Floor／Reflex／Finish の3層ゲート。
 - [Web プラットフォーム標準機能を優先する](../knowledge/programming/prefer-native-web-platform-features.md) — 標準機能の地図と、安全な採用の枠組み。
+- [公理的設計：機能要求の独立を保つ](../knowledge/design/axiomatic-design-independence.md) — FR/DP の写像、独立公理・情報公理、設計行列の3分類（非結合／分離可能／結合）と失敗パターン。別系統の古典的設計理論。
 
 ## 7. 最新の動向
 
@@ -79,4 +87,5 @@ related: ["../knowledge/design/animation-and-feel-decisions.md", "../knowledge/d
 - [Skills For Designers and Engineers（emilkowalski/skills）](../sources/technical/2026-03-16-emil-kowalski-skills.md) — https://github.com/emilkowalski/skills
 - [Hallmark ― AI 生成らしく見せないデザインスキル](../sources/technical/2026-04-27-hallmark.md) — https://github.com/Nutlope/hallmark
 - [Modern Web Guidance（GoogleChrome/modern-web-guidance）](../sources/technical/2026-03-23-modern-web-guidance.md) — https://github.com/GoogleChrome/modern-web-guidance
-- 更新履歴：2026-11-17 に初版を作成した。
+- [設計理論の考察（公理的設計：まとめ）](../sources/articles/2024-03-24-ndfb89d32b555.md) — https://note.com/happy_impala205/n/ndfb89d32b555
+- 更新履歴：2026-11-17 に初版を作成した。2026-11-26 に公理的設計の情報源と Knowledge を追加した。
